@@ -1,0 +1,37 @@
+plugins {
+	id 'java'
+	id 'org.springframework.boot' version '3.2.1'
+	id 'io.spring.dependency-management' version '1.1.4'
+}
+
+group = 'dev.tpcoder'
+version = '0.0.1-SNAPSHOT'
+
+java {
+	sourceCompatibility = '21'
+}
+
+repositories {
+	mavenCentral()
+}
+
+dependencies {
+	implementation 'org.springframework.boot:spring-boot-starter-actuator'
+	implementation 'org.springframework.boot:spring-boot-starter-webflux'
+	// with Firebase Admin SDK
+	implementation 'com.google.firebase:firebase-admin:9.2.0'
+	// with Google Auth Library and RESTful API
+	implementation 'com.google.auth:google-auth-library-oauth2-http:1.22.0'
+
+	testImplementation 'org.springframework.boot:spring-boot-starter-test'
+	testImplementation 'io.projectreactor:reactor-test'
+}
+
+tasks.named('test') {
+	useJUnitPlatform()
+}
+
+// Enable preview mode for JDK 21
+compileJava {
+	options.compilerArgs += ['--enable-preview']
+}
