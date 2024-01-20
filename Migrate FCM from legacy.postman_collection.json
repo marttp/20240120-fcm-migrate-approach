@@ -1,0 +1,106 @@
+{
+	"info": {
+		"_postman_id": "5e8de432-00c7-422b-85a9-6e93f059bd57",
+		"name": "Migrate FCM from legacy",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "7653867"
+	},
+	"item": [
+		{
+			"name": "Test FCM API with OAuth 2.0",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer {{ACCESS_TOKEN}}",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"message\": {\n        \"token\": {{token}},\n        \"notification\": {\n            \"title\": \"Let's go buy latest book\",\n            \"body\": \"New book from technology category!\"\n        },\n        \"data\": {\n            \"body\": \"Body of Your Notification in data\",\n            \"title\": \"Title of Your Notification in data\",\n            \"key1\": \"Value for key1\",\n            \"key2\": \"Value for key1\"\n        }\n    }\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://fcm.googleapis.com/v1/projects/{{FIREBASE_PROJECT_ID}}/messages:send",
+					"protocol": "https",
+					"host": [
+						"fcm",
+						"googleapis",
+						"com"
+					],
+					"path": [
+						"v1",
+						"projects",
+						"{{FIREBASE_PROJECT_ID}}",
+						"messages:send"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Spring - Firebase Admin approach",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"tokens\": [ \"{{token1}}\", \"{{token2}}\"],\n    \"notification\": {\n        \"title\": \"[ADMIN] Let's go buy latest book\",\n        \"body\": \"New book from technology category!\"\n    },\n    \"data\": {\n        \"body\": \"Body of Your Notification in data\",\n        \"title\": \"Title of Your Notification in data\",\n        \"key1\": \"Value for key1\",\n        \"key2\": \"Value for key1\"\n    }\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/push/firebase-admin",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"push",
+						"firebase-admin"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Spring - Google OAuth 2.0 approach",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"tokens\": [ \"{{token1}}\", \"{{token2}}\"],\n    \"notification\": {\n        \"title\": \"[OAuth2.0] Let's go buy latest book\",\n        \"body\": \"New book from technology category!\"\n    },\n    \"data\": {\n        \"body\": \"Body of Your Notification in data\",\n        \"title\": \"Title of Your Notification in data\",\n        \"key1\": \"Value for key1\",\n        \"key2\": \"Value for key1\"\n    }\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/push/google",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"push",
+						"google"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
