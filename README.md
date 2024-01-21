@@ -4,7 +4,7 @@ Repository to show example of the approaches which able to use when you decided 
 
 ## Blog post:
 
-* [TH] [Spring WebFlux] Migrate legacy FCM APIs แล้วไปใช้ Firebase Admin SDK หรือ HTTP v1 ก่อนหัวจะไหม้
+* [TH] [[Spring WebFlux] Migrate legacy FCM APIs แล้วไปใช้ Firebase Admin SDK หรือ HTTP v1 ก่อนหัวจะไหม้](https://tpbabparn.medium.com/แนวทาง-migrate-legacy-fcm-apis-แล้วไปใช้-firebase-admin-sdk-หรือ-http-v1-ก่อนหัวจะไหม้-a39418fd0544)
 * [EN] Coming soon...
 
 
